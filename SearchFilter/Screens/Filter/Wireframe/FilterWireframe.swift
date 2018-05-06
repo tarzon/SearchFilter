@@ -43,4 +43,8 @@ class FilterWireframeImpl: Wireframe, FilterWireframe {
             self.delegate?.filterUpdated(filter: filter)
         }
     }
+    
+    func gotoShopFilters() {
+        
+    }
 }
