@@ -37,7 +37,7 @@ class Product: Mappable {
         static let stock = "stock"
     }
     
-    var productId: String?
+    var productId: Int?
     var name: String?
     var uri: String?
     var imageUri: String?

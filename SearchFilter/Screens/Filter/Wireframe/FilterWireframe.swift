@@ -14,19 +14,28 @@ protocol FilterWireframeDelegate: class {
 
 protocol FilterWireframe {
     func dismissViewController(filter: FilterDTO)
+    func dismissViewController()
 }
 
 class FilterWireframeImpl: Wireframe, FilterWireframe {
     weak var delegate: FilterWireframeDelegate?
     
-    static func showAsRoot(inNavigationController navigationController: UINavigationController, delegate: FilterWireframeDelegate) -> UINavigationController {
+    static func showAsRoot(inNavigationController navigationController: UINavigationController,
+                           delegate: FilterWireframeDelegate,
+                           filterDTO: FilterDTO) -> UINavigationController {
         let wireframe = FilterWireframeImpl(navigationController: navigationController)
         wireframe.delegate = delegate
         let view = FilterViewController.instantiateFromStoryboard()
-        let presenter = FilterPresenter(view: view, wireframe: wireframe, screenInteractor: InteractorFactory.sharedInstance.filterScreenInteractor())
+        let presenter = FilterPresenter(view: view,
+                                        wireframe: wireframe,
+                                        screenInteractor: InteractorFactory.sharedInstance.filterScreenInteractor(filterDTO: filterDTO))
         view.presenter = presenter
         wireframe.navigationController.viewControllers = [view]
         return wireframe.navigationController
+    }
+    
+    func dismissViewController() {
+        self.navigationController.dismiss(animated: true, completion: nil)
     }
 
     func dismissViewController(filter: FilterDTO) {

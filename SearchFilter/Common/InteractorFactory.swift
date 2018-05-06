@@ -19,7 +19,7 @@ class InteractorFactory {
         return SearchScreenInteractorImpl(serviceLayer: serviceLayer())
     }
     
-    func filterScreenInteractor() -> FilterScreenInteractor {
-        return FilterScreenInteractorImpl()
+    func filterScreenInteractor(filterDTO: FilterDTO) -> FilterScreenInteractor {
+        return FilterScreenInteractorImpl(filterDTO: filterDTO)
     }
 }

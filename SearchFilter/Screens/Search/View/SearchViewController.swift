@@ -9,10 +9,12 @@
 import UIKit
 
 class SearchViewController: ViewController {
-    @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var collectionView: ProductCollectionView!
-    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var bottomContainerView: UIView!
+    @IBOutlet weak var filterButton: UIButton!
+    
     var presenter: SearchPresenter! // injected in wireframe
 
     override func viewDidLoad() {
@@ -35,6 +37,7 @@ class SearchViewController: ViewController {
         self.collectionView.productCollectionViewDelegate = self
         self.activityIndicator.isHidden = true
         
+        self.bottomContainerView.backgroundColor = Color.buttonBackground.color()
         self.filterButton.backgroundColor = Color.buttonBackground.color()
         self.filterButton.setTitle("Filter", for: .normal)
         self.filterButton.setTitleColor(Color.cellBackground.color(),

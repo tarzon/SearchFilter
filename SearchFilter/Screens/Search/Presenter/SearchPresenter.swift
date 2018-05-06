@@ -39,7 +39,8 @@ class SearchPresenter: Presenter {
     }
     
     func gotoFilters() {
-        self.wireframe.gotoFilters(delegate: self)
+        self.wireframe.gotoFilters(delegate: self,
+                                   filterDTO: self.screenInteractor.getSearchDTO().filter)
     }
     
     func getProducts() -> [Product] {
@@ -59,8 +60,18 @@ class SearchPresenter: Presenter {
 extension SearchPresenter: FilterWireframeDelegate {
     func filterUpdated(filter: FilterDTO) {
         self.screenInteractor.updateSearchDTO(filter: filter)
-        // reload the data as fresh search
         
-        self.view?.reloadView()
+        // reload the data as fresh search
+        self.screenInteractor.makeFreshSearch { (fetchSuccessFull, error) in
+            if fetchSuccessFull {
+                self.view?.reloadView()
+                self.view?.hideActivityIndicator()
+            }
+            
+            if let loadError = error {
+                self.view?.displayError(message: loadError.localizedDescription)
+                self.view?.hideActivityIndicator()
+            }
+        }
     }
 }

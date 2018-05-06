@@ -2,11 +2,13 @@ PODS:
   - Alamofire (4.7.1)
   - Nuke (6.1)
   - ObjectMapper (3.1.0)
+  - RangeSeekSlider (1.8.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - Nuke
   - ObjectMapper (~> 3.1)
+  - RangeSeekSlider (from `https://github.com/WorldDownTown/RangeSeekSlider.git`, branch `swift_4`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -14,11 +16,22 @@ SPEC REPOS:
     - Nuke
     - ObjectMapper
 
+EXTERNAL SOURCES:
+  RangeSeekSlider:
+    :branch: swift_4
+    :git: https://github.com/WorldDownTown/RangeSeekSlider.git
+
+CHECKOUT OPTIONS:
+  RangeSeekSlider:
+    :commit: 77c29321a97c7f029e878e1479ab5ed5e4b2edb2
+    :git: https://github.com/WorldDownTown/RangeSeekSlider.git
+
 SPEC CHECKSUMS:
   Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
   Nuke: 0513c8d156bd9a2adb15db70622c3527f44542c5
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  RangeSeekSlider: 650b11fa1edcb92e1e0ede797669d98622570fb5
 
-PODFILE CHECKSUM: 55ef13ff83841ea4e2434223de995d23780c73fa
+PODFILE CHECKSUM: 8eb7c245e4c0daeb6b1aaf92ab717e7bcacefbbf
 
 COCOAPODS: 1.5.0

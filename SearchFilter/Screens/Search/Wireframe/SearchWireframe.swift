@@ -9,7 +9,8 @@
 import UIKit
 
 protocol SearchWireframe {
-    func gotoFilters(delegate: FilterWireframeDelegate)
+    func gotoFilters(delegate: FilterWireframeDelegate,
+                     filterDTO: FilterDTO)
 }
 
 class SearchWireframeImpl: Wireframe, SearchWireframe {
@@ -24,8 +25,11 @@ class SearchWireframeImpl: Wireframe, SearchWireframe {
         return wireframe.navigationController
     }
     
-    func gotoFilters(delegate: FilterWireframeDelegate) {
-        let filterViewController = FilterWireframeImpl.showAsRoot(inNavigationController: UINavigationController(), delegate: delegate)
+    func gotoFilters(delegate: FilterWireframeDelegate,
+                     filterDTO: FilterDTO) {
+        let filterViewController = FilterWireframeImpl.showAsRoot(inNavigationController: UINavigationController(),
+                                                                  delegate: delegate,
+                                                                  filterDTO: filterDTO)
         self.navigationController.present(filterViewController, animated: true, completion: nil)
     }
 }

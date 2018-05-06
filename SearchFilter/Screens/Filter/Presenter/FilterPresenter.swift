@@ -19,4 +19,35 @@ class FilterPresenter: Presenter {
         super.init()
     }
 
+    func handleCancelButtonPressEvent() {
+        self.wireframe.dismissViewController()
+    }
+    
+    func handleApplyButtonPressEvent() {
+        self.wireframe.dismissViewController(filter: self.screenInteractor.getFilterDTO())
+    }
+    
+    func getFilterDTO() -> FilterDTO {
+        return self.screenInteractor.getFilterDTO()
+    }
+    
+    func resetFilters() {
+        self.screenInteractor.resetFilters()
+    }
+    
+    func minPriceChanged(price: String) {
+        self.screenInteractor.minPriceChanged(price: price)
+    }
+    
+    func maxPriceChanged(price: String) {
+        self.screenInteractor.maxPriceChanged(price: price)
+    }
+    
+    func wholesalePriceChanged(value: Bool) {
+        self.screenInteractor.wholesalePriceChanged(value: value)
+    }
+    
+    func shopTypeChanged(shopTypes: [ShopType]) {
+        self.screenInteractor.shopTypeChanged(shopTypes: shopTypes)
+    }
 }

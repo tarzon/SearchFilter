@@ -22,7 +22,7 @@ class Shop: Mappable {
         static let city = "city"
     }
     
-    var shopId: String?
+    var shopId: Int?
     var name: String?
     var uri: String?
     var isGold: Int?
