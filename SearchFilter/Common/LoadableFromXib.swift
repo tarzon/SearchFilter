@@ -50,6 +50,7 @@ extension NibLoadableView where Self: UIView {
             else { return }
         self.contentView = subView
         self.addSubview(self.contentView)
+        self.contentView.fillSuperview()
     }
     
     private func loadViewFromXib() -> UIView? {
