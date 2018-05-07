@@ -69,6 +69,7 @@ extension SearchPresenter: FilterWireframeDelegate {
             }
             
             if let loadError = error {
+                self.view?.reloadView()
                 self.view?.displayError(message: loadError.localizedDescription)
                 self.view?.hideActivityIndicator()
             }

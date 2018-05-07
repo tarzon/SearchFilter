@@ -88,9 +88,10 @@ class SearchScreenInteractorImpl: SearchScreenInteractor {
     }
     
     func makeFreshSearch(completion: @escaping (Bool, Error?) -> Void) {
-        self.productArray.removeAll()
         self.fetchProducts(product: self.searchString,
-                           searchDTO: self.searchDTO,
-                           completion: completion)
+                           searchDTO: self.searchDTO) { (products, error) in
+                            self.productArray.removeAll()
+                            completion(products, error)
+        }
     }
 }
