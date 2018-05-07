@@ -61,7 +61,7 @@ class FilterPresenter: Presenter {
     
     func gotoShops() {
         self.wireframe.gotoShops(delegate: self,
-                                 shops: self.screenInteractor.getFilterDTO().shopType)
+                                 filterDTO: self.screenInteractor.getFilterDTO())
     }
 }
 

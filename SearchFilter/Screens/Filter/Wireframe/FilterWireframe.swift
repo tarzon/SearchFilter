@@ -16,7 +16,7 @@ protocol FilterWireframe {
     func dismissViewController(filter: FilterDTO)
     func dismissViewController()
     func gotoShops(delegate: ShopWireframeDelegate,
-                   shops: [ShopType])
+                   filterDTO: FilterDTO)
 }
 
 class FilterWireframeImpl: Wireframe, FilterWireframe {
@@ -47,9 +47,9 @@ class FilterWireframeImpl: Wireframe, FilterWireframe {
     }
     
     func gotoShops(delegate: ShopWireframeDelegate,
-                     shops: [ShopType]) {
+                     filterDTO: FilterDTO) {
         let shopViewController = ShopWireframeImpl.showAsRoot(navigationController: UINavigationController(),
-                                                              shops: shops,
+                                                              filterDTO: filterDTO,
                                                               delegate: delegate)
         self.navigationController.present(shopViewController,
                                           animated: true,

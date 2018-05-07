@@ -23,7 +23,7 @@ class InteractorFactory {
         return FilterScreenInteractorImpl(filterDTO: filterDTO)
     }
     
-    func shopScreenInteractor(shops: [ShopType]) -> ShopScreenInteractor {
-        return ShopScreenInteractorImpl(shops: shops)
+    func shopScreenInteractor(filterDTO: FilterDTO) -> ShopScreenInteractor {
+        return ShopScreenInteractorImpl(filterDTO: filterDTO)
     }
 }

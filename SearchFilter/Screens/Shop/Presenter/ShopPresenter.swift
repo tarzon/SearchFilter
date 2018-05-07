@@ -19,4 +19,19 @@ class ShopPresenter: Presenter {
         super.init()
     }
 
+    func handleCancelButtonPressEvent() {
+        self.wireframe.dismissViewController()
+    }
+    
+    func handleApplyButtonPressEvent() {
+        self.wireframe.dismissViewController(shops: self.screenInteractor.getShops())
+    }
+    
+    func getShops() -> [ShopType] {
+        return self.screenInteractor.getShops()
+    }
+    
+    func resetFilters() {
+        self.screenInteractor.resetFilters()
+    }
 }

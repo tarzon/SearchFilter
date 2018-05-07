@@ -21,14 +21,14 @@ class ShopWireframeImpl: Wireframe, ShopWireframe {
     weak var delegate: ShopWireframeDelegate?
     
     static func showAsRoot(navigationController: UINavigationController,
-                           shops: [ShopType],
+                           filterDTO: FilterDTO,
                            delegate: ShopWireframeDelegate) -> UINavigationController {
         let wireframe = ShopWireframeImpl(navigationController: navigationController)
         wireframe.delegate = delegate
         let view = ShopViewController.instantiateFromStoryboard()
         let presenter = ShopPresenter(view: view,
                                       wireframe: wireframe,
-                                      screenInteractor: InteractorFactory.sharedInstance.shopScreenInteractor(shops: shops))
+                                      screenInteractor: InteractorFactory.sharedInstance.shopScreenInteractor(filterDTO: filterDTO))
         view.presenter = presenter
         wireframe.navigationController.viewControllers = [view]
         return wireframe.navigationController

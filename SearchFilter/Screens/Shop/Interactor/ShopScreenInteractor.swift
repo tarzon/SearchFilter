@@ -7,16 +7,25 @@
 //
 
 protocol ShopScreenInteractor {
-
+    func getShops() -> [ShopType]
+    func resetFilters()
 }
 
 class ShopScreenInteractorImpl: ShopScreenInteractor {
+    private var filterDTO: FilterDTO
     private var shops: [ShopType]!
     
-    init(shops: [ShopType]) {
-        self.shops = shops
+    init(filterDTO: FilterDTO) {
+        self.filterDTO = filterDTO
+        self.shops = filterDTO.shopType
     }
     
+    func getShops() -> [ShopType] {
+        return self.shops
+    }
     
+    func resetFilters() {
+        self.shops = self.filterDTO.shopType
+    }
     
 }
