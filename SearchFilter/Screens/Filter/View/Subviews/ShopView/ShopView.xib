@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShopView" customModule="SearchFilter" customModuleProvider="target">
+            <connections>
+                <outlet property="goldMerchantView" destination="xXH-Ws-Mpf" id="ad6-DI-ibC"/>
+                <outlet property="officialStoreLeadingLayoutConstraint" destination="B8L-Z4-yPW" id="Z98-Np-iCg"/>
+                <outlet property="officialStoreView" destination="ryr-kB-EHE" id="eJU-kl-4wm"/>
+                <outlet property="titleLabel" destination="pZA-qk-E28" id="Cak-lc-3ae"/>
+                <outlet property="topContainerView" destination="10i-5M-bHs" id="STg-FQ-mq1"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="461" height="106"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10i-5M-bHs">
+                    <rect key="frame" x="0.0" y="0.0" width="461" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZA-qk-E28">
+                            <rect key="frame" x="10" y="14.5" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="pZA-qk-E28" firstAttribute="centerY" secondItem="10i-5M-bHs" secondAttribute="centerY" id="COj-Ls-um1"/>
+                        <constraint firstAttribute="height" constant="50" id="IYB-Fm-GsV"/>
+                        <constraint firstItem="pZA-qk-E28" firstAttribute="leading" secondItem="10i-5M-bHs" secondAttribute="leading" constant="10" id="PKj-cI-oNI"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXH-Ws-Mpf" customClass="ShopTypeView" customModule="SearchFilter" customModuleProvider="target">
+                    <rect key="frame" x="10" y="60" width="130" height="26"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26" id="AC6-fu-oq1"/>
+                        <constraint firstAttribute="width" constant="130" id="pjc-bg-tMH"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryr-kB-EHE" customClass="ShopTypeView" customModule="SearchFilter" customModuleProvider="target">
+                    <rect key="frame" x="160" y="60" width="130" height="26"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26" id="DgI-eL-rvO"/>
+                        <constraint firstAttribute="width" constant="130" id="fpz-m1-J0G"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="10i-5M-bHs" secondAttribute="trailing" id="7ai-ig-D8x"/>
+                <constraint firstItem="ryr-kB-EHE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="160" id="B8L-Z4-yPW"/>
+                <constraint firstItem="xXH-Ws-Mpf" firstAttribute="top" secondItem="10i-5M-bHs" secondAttribute="bottom" constant="10" id="cVk-5O-KiM"/>
+                <constraint firstItem="ryr-kB-EHE" firstAttribute="top" secondItem="10i-5M-bHs" secondAttribute="bottom" constant="10" id="dG6-DI-Mqe"/>
+                <constraint firstItem="xXH-Ws-Mpf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="gat-w2-RJ6"/>
+                <constraint firstItem="10i-5M-bHs" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="kuR-Kw-zxr"/>
+                <constraint firstItem="10i-5M-bHs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="yTn-Wh-bGB"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="76.5" y="-149"/>
+        </view>
+    </objects>
+</document>

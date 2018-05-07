@@ -50,4 +50,12 @@ class FilterPresenter: Presenter {
     func shopTypeChanged(shopTypes: [ShopType]) {
         self.screenInteractor.shopTypeChanged(shopTypes: shopTypes)
     }
+    
+    func removeOfficialStore() {
+        self.screenInteractor.removeOfficialStore()
+    }
+    
+    func removeGoldMerchant() {
+        self.screenInteractor.removeGoldMerchant()
+    }
 }

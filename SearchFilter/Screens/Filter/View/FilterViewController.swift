@@ -15,6 +15,8 @@ class FilterViewController: ViewController {
     @IBOutlet weak var filterLabel: UILabel!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var sliderView: SliderView!
+    @IBOutlet weak var shopView: ShopView!
+    @IBOutlet weak var shopViewHeightLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomContainerView: UIView!
     @IBOutlet weak var applyButton: UIButton!
     
@@ -61,6 +63,7 @@ class FilterViewController: ViewController {
                                     for: .touchUpInside)
         
         self.sliderView.delegate = self
+        self.shopView.delegate = self
     }
     
     @objc private func cancelButtonPressed(sender: UIButton) {
@@ -78,6 +81,7 @@ class FilterViewController: ViewController {
     
     private func populateFilterValues() {
         self.sliderView.populateValues(filterDTO: self.presenter.getFilterDTO())
+        self.shopView.populateView(filterDTO: self.presenter.getFilterDTO())
     }
 }
 
@@ -96,5 +100,30 @@ extension FilterViewController: SliderViewDelegate {
     
     func wholeSaleValueChanged(value: Bool) {
         self.presenter.wholesalePriceChanged(value: value)
+    }
+}
+
+extension FilterViewController: ShopViewDelegate {
+    func topContainerTapped() {
+        print("Go to shop filter")
+    }
+    
+    func goldMerchantCancelTapped() {
+        self.presenter.removeGoldMerchant()
+        self.shopView.populateView(filterDTO: self.presenter.getFilterDTO())
+    }
+    
+    func officialStoreCancelTapped() {
+        self.presenter.removeOfficialStore()
+        self.shopView.populateView(filterDTO: self.presenter.getFilterDTO())
+    }
+    
+    func isBothViewHidden(hidden: Bool) {
+        if hidden {
+            self.shopViewHeightLayoutConstraint.constant = 50
+        } else {
+            self.shopViewHeightLayoutConstraint.constant = 96
+        }
+        
     }
 }

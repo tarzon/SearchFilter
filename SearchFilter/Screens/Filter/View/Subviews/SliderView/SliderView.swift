@@ -110,6 +110,7 @@ class SliderView: LoadableFromXibView {
     
     @objc private func wholesaleSwitchTapped(sender: UISwitch) {
         sender.isOn = !self.wholesaleSwitch.isOn
+        self.delegate?.wholeSaleValueChanged(value: sender.isOn)
     }
     
     private func checkForValidValues(price: String,

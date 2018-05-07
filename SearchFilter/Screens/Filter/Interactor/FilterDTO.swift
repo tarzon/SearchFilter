@@ -29,7 +29,7 @@ struct FilterDTO {
     var wholesale: Bool
     var shopType: [ShopType]
     
-    init(minPrice: String, maxPrice: String, wholesale: Bool = false, shopType: [ShopType] = [.unknown]) {
+    init(minPrice: String, maxPrice: String, wholesale: Bool = false, shopType: [ShopType] = [.goldMerchant, .officialStore]) {
         self.minPrice = minPrice
         self.maxPrice = maxPrice
         self.wholesale = wholesale

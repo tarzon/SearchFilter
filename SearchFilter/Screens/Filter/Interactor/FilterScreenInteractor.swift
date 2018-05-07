@@ -13,6 +13,8 @@ protocol FilterScreenInteractor {
     func shopTypeChanged(shopTypes: [ShopType])
     func getFilterDTO() -> FilterDTO
     func resetFilters()
+    func removeOfficialStore()
+    func removeGoldMerchant()
 }
 
 class FilterScreenInteractorImpl: FilterScreenInteractor {
@@ -46,8 +48,49 @@ class FilterScreenInteractorImpl: FilterScreenInteractor {
         self.wholesale = value
     }
     
+    func removeGoldMerchant() {
+        var newShopTypes = self.shopType
+        if newShopTypes.contains(.goldMerchant) {
+            if let index = newShopTypes.index(where: {$0 == ShopType.goldMerchant}) {
+                newShopTypes.remove(at: index)
+            }
+        }
+        
+        if newShopTypes.isEmpty {
+            newShopTypes = [.unknown]
+        }
+        
+        self.shopType = newShopTypes
+    }
+    
+    func removeOfficialStore() {
+        var newShopTypes = self.shopType
+        if newShopTypes.contains(.officialStore) {
+            if let index = newShopTypes.index(where: {$0 == ShopType.officialStore}) {
+                newShopTypes.remove(at: index)
+            }
+        }
+        
+        if newShopTypes.isEmpty {
+            newShopTypes = [.unknown]
+        }
+        
+        self.shopType = newShopTypes
+    }
+    
     func shopTypeChanged(shopTypes: [ShopType]) {
-        self.shopType = shopTypes
+        if shopTypes.isEmpty {
+            self.shopType = [.unknown]
+        } else {
+            var newShopTypes = shopTypes
+            if newShopTypes.contains(.unknown) && newShopTypes.count > 1 {
+                if let index = newShopTypes.index(where: {$0 == ShopType.unknown}) {
+                    newShopTypes.remove(at: index)
+                }
+            }
+            
+            self.shopType = newShopTypes
+        }
     }
     
     func getFilterDTO() -> FilterDTO {

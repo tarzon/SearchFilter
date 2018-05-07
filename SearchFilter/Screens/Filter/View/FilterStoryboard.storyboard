@@ -97,6 +97,13 @@
                                     <constraint firstAttribute="height" constant="231" id="Epb-wa-fge"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehp-QW-0Qw" customClass="ShopView" customModule="SearchFilter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="384" width="375" height="96"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="PeR-rn-bco"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -107,10 +114,13 @@
                             <constraint firstItem="n1R-42-m12" firstAttribute="leading" secondItem="hiI-eg-qNt" secondAttribute="leading" id="IGi-bj-1Rl"/>
                             <constraint firstItem="5Fo-2w-3gd" firstAttribute="top" secondItem="IsO-J5-Sq6" secondAttribute="bottom" constant="16.5" id="Lo9-zK-I33"/>
                             <constraint firstItem="e2A-ab-IlH" firstAttribute="top" secondItem="hiI-eg-qNt" secondAttribute="top" id="OuQ-EM-uOv"/>
+                            <constraint firstAttribute="trailing" secondItem="ehp-QW-0Qw" secondAttribute="trailing" id="YVT-mC-HAY"/>
                             <constraint firstItem="6L1-Iy-lgk" firstAttribute="leading" secondItem="hiI-eg-qNt" secondAttribute="leading" id="ZD7-qg-iUd"/>
                             <constraint firstAttribute="trailing" secondItem="n1R-42-m12" secondAttribute="trailing" id="gEU-Wa-HZj"/>
+                            <constraint firstItem="ehp-QW-0Qw" firstAttribute="top" secondItem="n1R-42-m12" secondAttribute="bottom" constant="20" id="hXh-2G-Ejb"/>
                             <constraint firstAttribute="bottom" secondItem="6L1-Iy-lgk" secondAttribute="bottom" id="hm2-Jw-bjJ"/>
                             <constraint firstAttribute="trailing" secondItem="e2A-ab-IlH" secondAttribute="trailing" id="qeF-HY-uYo"/>
+                            <constraint firstItem="ehp-QW-0Qw" firstAttribute="leading" secondItem="hiI-eg-qNt" secondAttribute="leading" id="sO2-5I-uyH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GSa-5e-3p8"/>
@@ -121,6 +131,8 @@
                         <outlet property="cancelButton" destination="5Fo-2w-3gd" id="GCM-vy-TwY"/>
                         <outlet property="filterLabel" destination="ot7-fd-WX5" id="5it-jZ-vrN"/>
                         <outlet property="resetButton" destination="LM3-mu-JoS" id="Nb1-C3-q9w"/>
+                        <outlet property="shopView" destination="ehp-QW-0Qw" id="s7c-BE-aB9"/>
+                        <outlet property="shopViewHeightLayoutConstraint" destination="PeR-rn-bco" id="3Z0-u2-Xj3"/>
                         <outlet property="sliderView" destination="n1R-42-m12" id="Cv8-Qm-rRi"/>
                         <outlet property="topContainerView" destination="e2A-ab-IlH" id="Ty9-HJ-p8U"/>
                     </connections>
