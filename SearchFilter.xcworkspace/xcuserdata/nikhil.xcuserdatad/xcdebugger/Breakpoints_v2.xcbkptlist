@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SearchFilter/Screens/Search/Interactor/SearchScreenInteractor.swift"
-            timestampString = "547363623.367686"
+            timestampString = "547364237.0961519"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "makeFreshSearch(completion:)"
             landmarkType = "7">
          </BreakpointContent>

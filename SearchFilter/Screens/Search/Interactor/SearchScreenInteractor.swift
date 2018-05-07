@@ -23,6 +23,7 @@ class SearchScreenInteractorImpl: SearchScreenInteractor {
     private var searchString: String = ""
     private var searchDTO: SearchDTO
     private var productArray: [Product] = []
+    private var isNewSearch: Bool = false
     
     init(serviceLayer: ServicesLayer) {
         self.serviceLayer = serviceLayer
@@ -71,6 +72,10 @@ class SearchScreenInteractorImpl: SearchScreenInteractor {
         self.serviceLayer.productSearch(productRequest: productRequestModel,
                                         startIndex: startIndex) { (products, error) in
                                             if let newProducts = products {
+                                                if self.isNewSearch {
+                                                    self.isNewSearch = !self.isNewSearch
+                                                    self.productArray.removeAll()
+                                                }
                                                 self.productArray.append(contentsOf: newProducts)
                                                 completion(true, nil)
                                                 return
@@ -88,10 +93,9 @@ class SearchScreenInteractorImpl: SearchScreenInteractor {
     }
     
     func makeFreshSearch(completion: @escaping (Bool, Error?) -> Void) {
+        self.isNewSearch = true
         self.fetchProducts(product: self.searchString,
-                           searchDTO: self.searchDTO) { (products, error) in
-                            self.productArray.removeAll()
-                            completion(products, error)
-        }
+                           searchDTO: self.searchDTO,
+                           completion: completion)
     }
 }

@@ -32,6 +32,7 @@ class SearchPresenter: Presenter {
                                                 }
                                                 
                                                 if let loadError = error {
+                                                    self.view?.reloadView()
                                                     self.view?.displayError(message: loadError.localizedDescription)
                                                     self.view?.hideActivityIndicator()
                                                 }
@@ -60,7 +61,7 @@ class SearchPresenter: Presenter {
 extension SearchPresenter: FilterWireframeDelegate {
     func filterUpdated(filter: FilterDTO) {
         self.screenInteractor.updateSearchDTO(filter: filter)
-        
+        self.view?.showActivityIndicator()
         // reload the data as fresh search
         self.screenInteractor.makeFreshSearch { (fetchSuccessFull, error) in
             if fetchSuccessFull {
