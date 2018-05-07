@@ -7,5 +7,5 @@
 //
 
 protocol ShopViewAdapter: class {
-
+    func updateView()
 }

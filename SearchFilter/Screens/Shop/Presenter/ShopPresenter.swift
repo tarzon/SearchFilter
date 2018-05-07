@@ -34,4 +34,22 @@ class ShopPresenter: Presenter {
     func resetFilters() {
         self.screenInteractor.resetFilters()
     }
+    
+    func getTotalShopTypes() -> [ShopType] {
+        return self.screenInteractor.getTotalShopTypes()
+    }
+    
+    func addShops(shop: ShopType) {
+        self.screenInteractor.addShops(shop: shop)
+        self.view?.updateView()
+    }
+    
+    func deleteShop(shop: ShopType) {
+        self.screenInteractor.deleteShop(shop: shop)
+        self.view?.updateView()
+    }
+    
+    func checkIfShopIsSelected(shop: ShopType) -> Bool {
+        return self.screenInteractor.checkIfShopIsSelected(shop: shop)
+    }
 }
