@@ -7,4 +7,5 @@
 //
 
 protocol FilterViewAdapter: class {
+    func updateView()
 }

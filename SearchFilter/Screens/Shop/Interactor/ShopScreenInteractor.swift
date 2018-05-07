@@ -11,8 +11,12 @@ protocol ShopScreenInteractor {
 }
 
 class ShopScreenInteractorImpl: ShopScreenInteractor {
+    private var shops: [ShopType]!
     
-    init() {
+    init(shops: [ShopType]) {
+        self.shops = shops
     }
+    
+    
     
 }

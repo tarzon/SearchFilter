@@ -82,11 +82,15 @@ class FilterViewController: ViewController {
     private func populateFilterValues() {
         self.sliderView.populateValues(filterDTO: self.presenter.getFilterDTO())
         self.shopView.populateView(filterDTO: self.presenter.getFilterDTO())
+        self.view.layoutSubviews()
+        self.view.layoutIfNeeded()
     }
 }
 
 extension FilterViewController: FilterViewAdapter {
-    
+    func updateView() {
+        self.populateFilterValues()
+    }
 }
 
 extension FilterViewController: SliderViewDelegate {
@@ -105,7 +109,7 @@ extension FilterViewController: SliderViewDelegate {
 
 extension FilterViewController: ShopViewDelegate {
     func topContainerTapped() {
-        print("Go to shop filter")
+        self.presenter.gotoShops()
     }
     
     func goldMerchantCancelTapped() {

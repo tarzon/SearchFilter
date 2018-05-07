@@ -58,4 +58,18 @@ class FilterPresenter: Presenter {
     func removeGoldMerchant() {
         self.screenInteractor.removeGoldMerchant()
     }
+    
+    func gotoShops() {
+        self.wireframe.gotoShops(delegate: self,
+                                 shops: self.screenInteractor.getFilterDTO().shopType)
+    }
+}
+
+extension FilterPresenter: ShopWireframeDelegate {
+    func shopsUpdated(shops: [ShopType]) {
+        self.screenInteractor.shopTypeChanged(shopTypes: shops)
+        self.view?.updateView()
+    }
+    
+    
 }
